@@ -2,11 +2,29 @@ body {
     background-color: lightslategrey
 }
 
-h1 {
-    color:black;
+header{
+    background-color: rgb(115, 147, 158);
     text-align: center;
+    width: 80%;
+    margin: auto;
 }
 
-p{
+h1 {
+    color:lightgrey;
+    text-align: center;
+    font-family:'Courier New', Courier, monospace;
+}
+
+main{
     font-size: large;
+    font-family:'Franklin Gothic Medium';
+    width: 80%;
+    margin: auto;
+}
+
+footer{
+    background-color:darkgrey;
+    text-align: center;
+    width: 80%;
+    margin: auto;
 }
