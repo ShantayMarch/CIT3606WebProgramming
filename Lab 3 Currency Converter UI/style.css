@@ -1,3 +1,8 @@
-body {
+.button {
+    margin: 6px 3px;
+    cursor: pointer;
+    background-color:brown;
+    color:bisque;
+    border-radius: 5px;
     
 }
