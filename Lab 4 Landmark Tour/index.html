@@ -4,12 +4,78 @@
         <meta name="viewport" content="width=device-width">
         <title>CIT 3606 Lab 4</title>
         <link href="style.css" rel="stylesheet" type="text/css" />
+    
+    <style>
+        #description{
+            background-color: lightpink;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 22px;
+            margin-top: 30px;
+
+
+        }
+        
+    </style>
+    
     </head>
     <body>
-      
+      <h1> Famous Landmarks </h1>
+
+      <img id="landmark" src = "GoldenGate.jpg"  alt="Golden Gate Bridge" width=" 365px">
+
+     <iframe  id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.7249553714114!2d-122.4785598!3d37.819910899999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808586deffffffc3%3A0xcded139783705509!2sGolden%20Gate%20Bridge!5e0!3m2!1sen!2sus!4v1759394312992!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+     <div id= 'description'>The Golden Gate Bridge is a famous, 1.7-mile-long orange suspension bridge in California connecting San Francisco to Marin County across the Golden Gate Strait </div>
+
+
+        <p>Choose a Landmark: </p>
+
+        <form>
+            <input type="radio" id="location1" name="landmark" onclick="updateMap('GoldenGate.jpg',BridgeLocation, 'The Golden Gate Bridge is a famous, 1.7-mile-long orange suspension bridge in California connecting San Francisco to Marin County across the Golden Gate Strait')" value="Golden_Gate_Bridge">
+            <label for="Golden_Gate_Bridge">Golden Gate Bridge</label> <br>
+
+            <input type="radio" id="location2" name="landmark" onclick="updateMap('MachuPichu.jpg',PicchuLocation, 'Machu Picchu is a 15th-century Inca citadel located in the Eastern Cordillera of southern Peru on a 2,430-meter (7,970 ft) mountain ridge.') " value="Machu_Picchu">
+            <label for="Machu_Picchu">Machu Picchu</label> <br>
+
+            <input type="radio" id="location3" name="landmark" onclick="updateMap('NiagraFalls.jpg',FallsLocation, 'Niagara Falls is a group of three waterfalls at the southern end of Niagara Gorge, between the Canadian province of Ontario and the U.S. state of New York.')" value="Niagara_Falls">
+            <label for="Niagara_Falls">Niagara Falls</label> <br>
+        </form>
+
+        <select id="size" onchange="changeSize()">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+        </select>
+
+
+
+
       
      <!-- The JavaScript code is attached at the bottom of the page
            after the page is completely loaded. Write your code in script.js. -->
-     <script src="script.js"></script> 
+     <script >
+        
+       let BridgeLocation = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.7247756267066!2d-122.48113472376906!3d37.81991510955782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808586deffffffc3%3A0xcded139783705509!2sGolden%20Gate%20Bridge!5e0!3m2!1sen!2sus!4v1759401426224!5m2!1sen!2sus";
+        let PicchuLocation= "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7769.974825753528!2d-72.55013301622937!3d-13.163193530592508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x916d9a5f89555555%3A0x3a10370ea4a01a27!2sHistoric%20Sanctuary%20of%20Machu%20Picchu!5e0!3m2!1sen!2sus!4v1759401492206!5m2!1sen!2sus";
+        let FallsLocation = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d75871.209205602!2d-79.14953732011759!3d43.05947941917441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d34307412d7ae9%3A0x29be1d1e689ce35b!2sNiagara%20Falls!5e0!3m2!1sen!2sus!4v1759401633724!5m2!1sen!2sus";
+
+        function updateMap(image, location, description) {
+            document.getElementById("landmark").src = image;
+            document.getElementById("map").src = location;
+            document.getElementById("description").textContent = description;
+        }
+         function changeSize() {
+            let size = document.getElementById("size").value;
+            let img = document.getElementById("landmark");
+            if (size === "small") {
+                img.style.width = "365px";
+            } else if (size === "medium") {
+                img.style.width = "590px";
+            } else if (size === "large") {
+                img.style.width = "1000px";
+            }
+         }
+
+        </script>
     </body>
-</html>
+ </html>
