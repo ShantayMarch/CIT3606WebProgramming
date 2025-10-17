@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width">
+        <title>CIT 3606 in Class </title>
+        <link href="style.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+
+        <h1>Shantay's Test Run</h1>
+
+      <canvas id = "myCanvas" width = "500" height = "400"
+      style = "border: 1px solid black"></canvas>
+      
+
+        <script>
+const canvas = document.getElementById('myCanvas');
+const ctx = canvas.getContext('2d');
+ctx.fillStyle = 'blue';
+ctx.fillRect(canvas.width/2 - 50, canvas.height/2 -50 ,100,100);
+ctx.fillStyle = 'red';
+ctx.arc(200,200, 30, 0, 360);
+ctx.fill();
+const myImg = new Image();
+myImg.src = 'cat.jpg';
+myImg.onload = function() {
+    ctx.drawImage(myImg, 10, 10, 100, 100);
+     
+}
+        
+myCanvas.onmousedown = function(event) {
+    const rect = canvas.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+
+    alert("You clicked at " + x + "," + y);
+}
+
+setInterval(drawFunction,100);
+let x = 10;
+let y = 10;
+function drawFunction(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    x+=2;
+    y+= Math.random()*10;
+    ctx.drawImage(myImg, x, y, 100, 100);
+
+}
+    
+        </script> 
+    </body>
+</html>
