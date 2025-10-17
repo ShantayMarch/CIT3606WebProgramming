@@ -48,7 +48,7 @@ myCanvas.onmousedown = function(event) {
         alert("The cat is saved !!! \nScore: " + score);
     } else if (x >= x2 && x <= x2 + 100 && y >= y2 && y <= y2 + 100) {
         score -= 1;
-        alert("BOOM!!! You clicked the bomb  \nScore:" + score);
+        alert("BOOM!!! You clicked the bomb  \nScore: " + score);
     }
 
 }
