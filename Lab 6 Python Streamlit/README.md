@@ -1,1 +1,39 @@
 # Lab 6 Python Streamlit
+import streamlit as st
+
+st.title('Tuition Net Calculator')
+st.write('To estimate your **Net Tuition** fill out the section below')
+
+st.info(" **Base tuition:** 42,540 **Fee:** 2,025" , icon='💵')
+
+Base_fee = 44565
+price = 0
+
+GPA = st.number_input('Enter your Highschool or Transfer GPA')
+
+if GPA > 3.49:
+    st.write('**You shall recieve a merit scholorship of 20k!**')
+    st.balloons()
+    price += 20000
+
+    
+SAI = st.number_input('Enter your FAFSA SAI')
+
+if SAI <= 7395.00:
+    pell = 7395 - SAI
+    st.write('**You shall recieve a Pell Grant of 7395**')
+    price += pell
+    
+
+local = st.selectbox('Are you local to the area?' , ('Yes', 'No'))
+
+if local == 'Yes':
+    st.write('**You shall recieve a 5k scholorship !**')
+    price += 5000
+
+
+
+netPrice = Base_fee - price
+
+st.write('**Estimated Net Tuition Below**')
+st.success( netPrice)
