@@ -15,7 +15,6 @@ function Pokemon(props) {
 
 
 
-
 function App() {
   return (
     <div className="App">
