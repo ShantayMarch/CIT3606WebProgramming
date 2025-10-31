@@ -1,7 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
 
-
 function Pokemon() {
   return (
     <div className="Pokemancard">
@@ -13,8 +12,7 @@ function Pokemon() {
           <p>Fire/Dark Type</p>
         </div>
       </div>
-
-     
+  
       <div className="card">
         <img src="993.png" alt="Iron Jugulis" style={{ width: "100%" }} />
         <div className="container">
@@ -22,8 +20,7 @@ function Pokemon() {
           <p>Dark/Flying Type</p>
         </div>
       </div>
-
-      
+ 
       <div className="card">
         <img src="790.png" alt="Cosmoem" style={{ width: "100%" }} />
         <div className="container">
