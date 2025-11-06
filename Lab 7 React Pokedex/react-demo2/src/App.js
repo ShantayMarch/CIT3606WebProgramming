@@ -16,7 +16,7 @@ function Pokemon(props) {
 }
 
 function Search(){
-const [name, setName ] = useState ('');
+const [name, setName ] = useState ('Pikachu');
 const [image, setImage ] = useState ('');
 const [type, setType ] = useState ('');
 
