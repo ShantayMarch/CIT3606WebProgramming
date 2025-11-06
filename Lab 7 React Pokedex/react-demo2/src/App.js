@@ -5,10 +5,11 @@ import {useState} from "react"
 function Pokemon(props) {
   return ( 
   <div className="card">
-  <img src={props.image} alt={props.name} style={{width: "100%"}}/>
+  <img src={props.image} alt={props.name} style={{width: "250px", height: "250px"}}/>
+  
   <div className="container">
     <h4><b>{props.name}</b></h4>
-    <p>{props.type} Type</p>
+    <p>{props.type}</p>
   </div>
 </div>
   );
@@ -19,18 +20,16 @@ const [name, setName ] = useState ('');
 const [image, setImage ] = useState ('');
 const [type, setType ] = useState ('');
 
-const getPokemon = async () => {
-  try {
-    const response = await fetch('https://pokeapi.co/api/v2/pokemon/');
-    const data = await response.json();
+function getPokemon() {
+  fetch("https://pokeapi.co/api/v2/pokemon/"+name)
+  .then(response => response.json())
+  .then(data => {
     setImage(data.sprites.front_default);
     setType(data.types[0].type.name);
-  } catch (error) {
-    console.error("Error fetching Pokémon:", error);
-    setImage("");
-    setType("Not found");
-  }
-};
+  })
+ ;
+}
+
 
 return <div>
 Enter name:
@@ -48,7 +47,7 @@ function App() {
       <header className="App-header">
         <h1> Pokedex</h1>
        <Search/>
-<div className="Pokemancard">
+ <div className="Pokemancard">
 
   <Pokemon  name="Incineroar"  image ="727.png" type="Fire/Dark" />
   <Pokemon name=" Iron Jugulis" image ="993.png" type="Dark/Flying" />
@@ -60,5 +59,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
