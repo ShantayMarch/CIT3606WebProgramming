@@ -17,7 +17,7 @@ function Pokemon(props) {
 
 function Search(){
 const [name, setName ] = useState ('Pikachu');
-const [image, setImage ] = useState ('');
+const [image, setImage ] = useState ("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png");
 const [type, setType ] = useState ('');
 
 function getPokemon() {
