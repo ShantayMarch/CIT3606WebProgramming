@@ -36,6 +36,37 @@ app.get('/form', function(req, res){
    res.sendFile(__dirname + "/form.html");
 });
 
+app.post('/submit', function(req, res){
+  const sql = 'SELECT * FROM students WHERE lastname = ?';
+  console.log("Form contents: " + req.body.lastname);
+  conn.query(sql, [req.body.lastname], function (err, result) {
+    if (err) throw err;
+    if (result.length == 0)  { res.send("no result"); }
+    else {  console.log(result);
+               //res.send(result);
+
+               resultStr = "" 
+for (i = 0; i < result.length; i++) {
+      resultStr += result[i].firstname +  " " + 
+                           result[i].lastname + "<br>"  ;
+   }
+ res.send(resultStr);
+
+   }  }  );
+});    
+
+app.get('/new', function(req, res){
+   res.sendFile(__dirname + "/new.html");
+});
+
+
+app.post('/insert', function(req, res){
+  const sql = 'INSERT INTO user (email, username, password) VALUES (?, ?, ?)';
+  conn.query(sql, [req.body.email, req.body.username, req.body.password], function (err, result) {
+    if(err)throw err;
+    res.send("Account Created");
+  });
+});
 
 
 app.listen(8080);
