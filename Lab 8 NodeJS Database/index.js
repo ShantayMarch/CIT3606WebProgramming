@@ -61,10 +61,26 @@ app.get('/new', function(req, res){
 
 
 app.post('/insert', function(req, res){
-  const sql = 'INSERT INTO user (email, username, password) VALUES (?, ?, ?)';
+  const sql = 'INSERT INTO USERS (email, username, password) VALUES (?, ?, ?)';
   conn.query(sql, [req.body.email, req.body.username, req.body.password], function (err, result) {
     if(err)throw err;
-    res.send("Account Created");
+
+    res.send('<h1>New user added</h1>');
+  });
+});
+
+app.get('/forgot', function(req, res){
+   res.sendFile(__dirname + "/forgot.html");
+});
+
+app.post('/retrieve', function(req, res){
+  const sql = 'SELECT password FROM USERS WHERE email = ?';
+  conn.query(sql, [req.body.email], function (err, result) {
+    if(err)throw err;
+     if (result.length == 0)  { res.send("no result"); }
+    else {  console.log(result);
+        res.send("Password: " + result[0].password);
+    }
   });
 });
 
