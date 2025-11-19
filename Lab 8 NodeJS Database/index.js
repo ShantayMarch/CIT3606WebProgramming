@@ -65,7 +65,7 @@ app.post('/insert', function(req, res){
   conn.query(sql, [req.body.email, req.body.username, req.body.password], function (err, result) {
     if(err)throw err;
 
-    res.send('<h1>New user added</h1>');
+    res.send('New User Added');
   });
 });
 
@@ -74,15 +74,14 @@ app.get('/forgot', function(req, res){
 });
 
 app.post('/retrieve', function(req, res){
-  const sql = 'SELECT password FROM USERS WHERE email = ?';
+  const sql = 'SELECT username, password FROM USERS WHERE email = ?';
   conn.query(sql, [req.body.email], function (err, result) {
     if(err)throw err;
      if (result.length == 0)  { res.send("no result"); }
     else {  console.log(result);
-        res.send("Password: " + result[0].password);
-    }
+        res.send( "Username: " + result[0].username + "<br>" + "Passowrd: " +result[0].password);
+        }
   });
 });
-
 
 app.listen(8080);
