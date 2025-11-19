@@ -51,8 +51,8 @@ for (i = 0; i < result.length; i++) {
                            result[i].lastname + "<br>"  ;
    }
  res.send(resultStr);
+}});
 
-   }  }  );
 });    
 
 app.get('/new', function(req, res){
