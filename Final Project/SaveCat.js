@@ -36,8 +36,6 @@ function drawFunction(){
 
 }
 
-
-
 myCanvas.onmousedown = function(event) {
     const rect = canvas.getBoundingClientRect();
     const x = event.clientX - rect.left;
