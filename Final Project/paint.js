@@ -7,9 +7,12 @@ const clearBtn = document.getElementById('clear');
 const ctx = canvas.getContext('2d');
 
 
+ ctx.strokeStyle = strokeColor.value;
+ctx.lineWidth = lineWidth.value;
+
 strokeColor.addEventListener('change', (e) => {
   ctx.strokeStyle = e.target.value;
-  ctx.strokeStyle = strokeColor.value;
+ 
 });
 
 lineWidth.addEventListener('change', (e) => {
@@ -18,6 +21,7 @@ lineWidth.addEventListener('change', (e) => {
 
 clearBtn.addEventListener('click', () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.beginPath();
 });
 
 let painting = false;
