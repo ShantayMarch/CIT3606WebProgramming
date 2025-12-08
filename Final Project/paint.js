@@ -3,7 +3,8 @@ window.addEventListener('load', () => {
 const canvas = document.getElementById('Canvas');
 const strokeColor = document.getElementById('stroke');
 const lineWidth = document.getElementById('lineWidth');
-const clearBtn = document.getElementById('clear');
+const clear = document.getElementById('clear');
+const eraser = document.getElementById('eraser');
 const ctx = canvas.getContext('2d');
 
 
@@ -19,10 +20,16 @@ lineWidth.addEventListener('change', (e) => {
   ctx.lineWidth = e.target.value;
 });
 
-clearBtn.addEventListener('click', () => {
+clear.addEventListener('click', () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.beginPath();
 });
+
+clear.addEventListener('click', () => {
+    
+
+});
+
 
 let painting = false;
 
