@@ -81,7 +81,7 @@ h2{
   font-size: 90px;
 }
 
-canvas{
-  
-  
+.toolbar-button{
+  background-color: lightgrey;
+max-width: 60px;
 }
